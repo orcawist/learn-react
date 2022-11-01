@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
@@ -7,10 +7,20 @@ import { Header } from "src/components/Header";
 
 export default function Home() {
   const [count, setCount] = useState(1);
-  const handleClick = (e) => {
-    setCount((count) => count + 1);
-    setCount((count) => count + 1);
-  };
+  const handleClick = useCallback(() => {
+    if (count < 10) {
+      setCount((count) => count + 1);
+    }
+  }, [count]);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "lightblue";
+
+    // 第2引数の変更でここが呼ばれる時はマウント時の処理より先にここが動く
+    return () => {
+      document.body.style.backgroundColor = "";
+    };
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
