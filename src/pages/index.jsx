@@ -1,48 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
+import { useCounter } from "src/hooks/useCounter";
+import { useInputArray } from "src/hooks/useInputArray";
+import { useBgLightblue } from "src/hooks/useBgLightblue";
 
 export default function Home() {
-  const [count, setCount] = useState(1);
-  const [text, setText] = useState("");
-  const [isShow, setIsShow] = useState(true);
-  const [array, setArray] = useState([]);
-  const handleClick = useCallback(() => {
-    if (count < 10) {
-      setCount((prevCount) => prevCount + 1);
-    }
-  }, [count]);
+  const { count, isShow, handleClick, handleDisplay } = useCounter();
+  const { text, array, handleChange, handleAdd } = useInputArray();
+  useBgLightblue();
 
-  const handleDisplay = useCallback(() => {
-    setIsShow((prevIsShow) => !prevIsShow);
-  }, []);
-
-  const handleChange = useCallback((e) => {
-    if (text.length > 5) return;
-    setText(e.target.value);
-  }, []);
-
-  const handleAdd = useCallback(() => {
-    setArray((prevArray) => {
-      if (prevArray.some((item) => item === text)) {
-        alert("同じのがある");
-        return prevArray;
-      }
-      return [...prevArray, text];
-    });
-  }, [text]);
-
-  useEffect(() => {
-    document.body.style.backgroundColor = "lightblue";
-
-    // 第2引数の変更でここが呼ばれる時はマウント時の処理より先にここが動く
-    return () => {
-      document.body.style.backgroundColor = "";
-    };
-  }, []);
   return (
     <div className={styles.container}>
       <Head>
