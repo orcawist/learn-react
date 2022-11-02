@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "src/styles/Home.module.css";
 
-export function Links({ items }) {
+export const Links = (props) => {
   return (
     <div className={styles.grid}>
-      {items.map((item) => {
+      {props.items.map((item) => {
         return (
           <a key={item.href} href={item.href} className={styles.card}>
             <h2>{item.title}</h2>
@@ -14,4 +14,4 @@ export function Links({ items }) {
       })}
     </div>
   );
-}
+};

@@ -1,16 +1,21 @@
 import Link from "next/link";
 import React from "react";
-import styles from "src/styles/Home.module.css";
 
-export function Header() {
+const NAV_ITEMS = [
+  { href: "/", label: "Index" },
+  { href: "/about", label: "About" },
+];
+
+export const Header = () => {
   return (
     <header>
-      <Link href="/">
-        <p>Index</p>
-      </Link>
-      <Link href="/about">
-        <p>About</p>
-      </Link>
+      {NAV_ITEMS.map((item) => {
+        return (
+          <Link key={item.href} href={item.href}>
+            <p>{item.label}</p>
+          </Link>
+        );
+      })}
     </header>
   );
-}
+};
