@@ -2,13 +2,13 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { useCounter } from "src/hooks/useCounter";
 import { useInputArray } from "src/hooks/useInputArray";
-import { useBgLightblue } from "src/hooks/useBgLightblue";
+import { useBgColor } from "src/hooks/useBgColor";
 import "src/styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const counter = useCounter();
   const inputArray = useInputArray();
-  useBgLightblue();
+  useBgColor();
   return (
     <>
       <Head>
