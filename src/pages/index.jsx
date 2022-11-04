@@ -5,7 +5,7 @@ import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
 
-const About = (props) => {
+const Index = (props) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -29,11 +29,11 @@ const About = (props) => {
         })}
       </ul>
 
-      <Main page="about" />
+      <Main page="Index" />
 
       <Footer />
     </div>
   );
 };
 
-export default About;
+export default Index;
