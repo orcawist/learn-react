@@ -1,10 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import { Header } from "src/components/Header";
-import { Posts as PostsComponent } from "src/components/Posts";
-import { Users } from "src/components/Users";
+import { Users as UsersComponent } from "src/components/Users";
 
-const Posts = () => {
+const Users = () => {
   return (
     <div>
       <Head>
@@ -13,10 +12,9 @@ const Posts = () => {
       </Head>
       <Header />
 
-      <PostsComponent />
-      <Users />
+      <UsersComponent />
     </div>
   );
 };
 
-export default Posts;
+export default Users;

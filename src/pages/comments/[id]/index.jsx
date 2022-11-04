@@ -1,15 +1,15 @@
 import React from "react";
+import { Comment } from "src/components/Comment";
 import { Header } from "src/components/Header";
-import { Post } from "src/components/Post";
 
-const PostsId = () => {
+const CommentId = () => {
   return (
     <div>
       <Header />
 
-      <Post />
+      <Comment />
     </div>
   );
 };
 
-export default PostsId;
+export default CommentId;

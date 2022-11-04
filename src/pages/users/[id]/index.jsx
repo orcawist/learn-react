@@ -1,15 +1,15 @@
 import React from "react";
 import { Header } from "src/components/Header";
-import { Post } from "src/components/Post";
+import { User } from "src/components/User";
 
-const PostsId = () => {
+const UsersId = () => {
   return (
     <div>
       <Header />
 
-      <Post />
+      <User />
     </div>
   );
 };
 
-export default PostsId;
+export default UsersId;
