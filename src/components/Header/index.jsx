@@ -2,8 +2,8 @@ import Link from "next/link";
 import React from "react";
 
 const NAV_ITEMS = [
+  { href: "/", label: "Index" },
   { href: "/posts", label: "Posts" },
-  { href: "/about", label: "About" },
 ];
 
 export const Header = () => {
