@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import React from "react";
+import PostByCommentId from "src/components/Post/PostByCommentId";
 import { useComment } from "src/hooks/useComment";
 
 export const Comment = () => {
@@ -22,6 +22,8 @@ export const Comment = () => {
       </Head>
       <h1>{data.body}</h1>
       {data.name ? <div>Created by {data.name}</div> : null}
+      <h2>元の記事</h2>
+      <PostByCommentId id={data.postId} />
     </div>
   );
 };
