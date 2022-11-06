@@ -1,9 +1,8 @@
-import { fetcher } from "src/utils/fetcher";
 import useSWR from "swr";
 
 export const useFetchArray = (url) => {
   // featureをoverrideしない場合keyにURL
-  const { data, error } = useSWR(url, fetcher);
+  const { data, error } = useSWR(url);
 
   return {
     data,
