@@ -18,15 +18,22 @@ export const Posts = () => {
     return <div>データは空です</div>;
   }
   return (
-    <ol>
+    <ul className="space-y-4">
       {data.map((post) => {
         return (
           <li key={post.id}>
-            <Link href={`/posts/${post.id}`}>{post.title}</Link>
+            <Link href={`/posts/${post.id}`} className="block group">
+              <h1 className="font-bold group-hover:text-blue-400">
+                {post.title}
+              </h1>
+              <p className="text-sm text-gray-500 group-hover:text-blue-400">
+                {post.body}
+              </p>
+            </Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };
 

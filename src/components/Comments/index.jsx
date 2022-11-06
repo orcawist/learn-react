@@ -17,16 +17,19 @@ export const Comments = () => {
     return <div>データは空です</div>;
   }
   return (
-    <ol>
+    <ul className="space-y-2">
       {data.map((comment) => {
         return (
-          <li key={comment.id}>
-            <p>
-              <Link href={`/comments/${comment.id}`}>{comment.body}</Link>
-            </p>
+          <li key={comment.id} className="border-b pb-2">
+            <Link
+              href={`/comments/${comment.id}`}
+              className="block hover:text-blue-500"
+            >
+              {comment.body}
+            </Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };

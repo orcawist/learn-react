@@ -17,17 +17,20 @@ export const Users = () => {
     return <div>データは空です</div>;
   }
   return (
-    <ol>
+    <ul className="grid grid-cols-3 gap-4">
       {data.map((user) => {
         return (
           <li key={user.id}>
-            <h2>
-              <Link href={`/users/${user.id}`}>{user.name}</Link>
-            </h2>
-            <p>{user.email}</p>
+            <Link
+              href={`/users/${user.id}`}
+              className="block p-2 shadow rounded hover:bg-gray-100"
+            >
+              <h2 className="text-bold">{user.name}</h2>
+              <p className="text-sm">{user.email}</p>
+            </Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };

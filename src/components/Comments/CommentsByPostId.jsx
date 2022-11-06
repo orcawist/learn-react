@@ -14,16 +14,19 @@ export const CommentsByPostId = (props) => {
   }
 
   return (
-    <ol>
-      {data.map((data) => {
+    <ul className="space-y-2">
+      {data.map((comment) => {
         return (
-          <li key={data.id}>
-            <p>
-              <Link href={`/comments/${data.id}`}>{data.body}</Link>
-            </p>
+          <li key={comment.id} className="border-b pb-2">
+            <Link
+              href={`/comments/${comment.id}`}
+              className="block hover:text-blue-500"
+            >
+              {comment.body}
+            </Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };
