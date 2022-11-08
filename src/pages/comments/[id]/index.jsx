@@ -17,11 +17,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
   const { id } = ctx.params;
-  const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comment/${id}`;
+  const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
   const comments = await fetch(COMMENT_API_URL);
   const commentsData = await comments.json();
-
-  console.log(`${id}のページをSG`);
 
   return {
     props: {
